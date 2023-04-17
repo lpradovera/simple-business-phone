@@ -7,13 +7,15 @@ Use `react-native-webrtc` in a custom [Expo Dev Client](https://docs.expo.dev/cl
 
 ## 🚀 How to use
 
-```sh
-npx create-react-native-app -t with-webrtc
-```
+First of all, copy `backend/env.example` to `backend/.env` and add your SignalWire credentials to it. Run the backend by executing `node index.js` in the `backend` folder.
 
-## ☁️ Build in the cloud
+Start a tunnel by using `npx localtunnel --port 3000 --subdomain somesubdomain`, getting a URL like `https://somesubdomain.loca.lt`.
 
-- [Building with EAS](https://docs.expo.dev/eas/)
+Copy `env.example` to `.env` and fill in the `API_URL` with the above URL plus `/token`, so for example `https://somesubdomain.loca.lt/token`.
+
+Run `yarn ios` (Android not supported yet) and just run a call!
+
+To dial into the app, dial `myclient@your-default-sip-domain.sip.signalwire.com` from any LAML, Relay app or a registered SIP endpoint. You can find your SIP domain in your SignalWire dashboard.
 
 ## 🏃 How to build and run locally
 

@@ -12,6 +12,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Relay } from '@signalwire/react-native';
 import { RTCView } from 'react-native-webrtc';
 import Colors from './Colors';
+import Config from "react-native-config";
+import axios from "axios";
 
 
 type Props = {};
@@ -31,7 +33,7 @@ export default class App extends Component<Props> {
     this.state = {
       connected: false,
       call: null,
-      extension: '3593',
+      extension: '+18004444444',
       btnMicActive: true,
       btnDeafActive: true,
       btnCamActive: true,
@@ -39,11 +41,13 @@ export default class App extends Component<Props> {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const response = await axios.post(Config.API_URL, {})
     // Use your Project ID and a JWT to create a Relay client.
+    console.log(response.data)
     this.client = new Relay({
-      project: '',
-      token: ''
+      project: response.data.project,
+      token: response.data.jwt_token
     })
 
     this.client.on('signalwire.ready', () => {

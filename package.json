@@ -6,6 +6,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/async-storage": "^1.9.0",
     "@signalwire/react-native": "^1.0.3",
